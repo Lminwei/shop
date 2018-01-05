@@ -51,7 +51,7 @@ public class UserServiceImpl implements IUserService
     {
         String token = UUID.randomUUID().toString();
         userCache.put(token, user);
-        return  token;
+        return token;
     }
 
     @Override
