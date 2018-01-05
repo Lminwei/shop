@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wolfcode.shop.server.mapper.OrderInfoMapper" >
+  <resultMap id="BaseResultMap" type="cn.wolfcode.shop.api.domain.OrderInfo" >
+    <id column="id" property="id" />
+    <result column="order_sn" property="orderSn" />
+    <result column="user_id" property="userId" />
+    <result column="order_status" property="orderStatus" />
+    <result column="shipping_status" property="shippingStatus" />
+    <result column="pay_status" property="payStatus" />
+    <result column="consignee" property="consignee" />
+    <result column="country" property="country" />
+    <result column="province" property="province" />
+    <result column="city" property="city" />
+    <result column="district" property="district" />
+    <result column="address" property="address" />
+    <result column="zipcode" property="zipcode" />
+    <result column="mobile" property="mobile" />
+    <result column="order_amount" property="orderAmount" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from `order_info`
+    where id = #{id}
+  </delete>
+  <insert id="insert" parameterType="cn.wolfcode.shop.api.domain.OrderInfo" useGeneratedKeys="true" keyProperty="id" >
+    insert into `order_info` (order_sn, user_id, order_status, shipping_status, pay_status, consignee, 
+      country, province, city, district, address, zipcode, mobile, 
+      order_amount)
+    values (#{orderSn}, #{userId}, #{orderStatus}, #{shippingStatus}, #{payStatus}, #{consignee}, 
+      #{country}, #{province}, #{city}, #{district}, #{address}, #{zipcode}, #{mobile}, 
+      #{orderAmount})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.wolfcode.shop.api.domain.OrderInfo" >
+    update `order_info`
+    set order_sn = #{orderSn},
+      user_id = #{userId},
+      order_status = #{orderStatus},
+      shipping_status = #{shippingStatus},
+      pay_status = #{payStatus},
+      consignee = #{consignee},
+      country = #{country},
+      province = #{province},
+      city = #{city},
+      district = #{district},
+      address = #{address},
+      zipcode = #{zipcode},
+      mobile = #{mobile},
+      order_amount = #{orderAmount}
+    where id = #{id}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, order_sn, user_id, order_status, shipping_status, pay_status, consignee, 
+    country, province, city, district, address, zipcode, mobile, order_amount
+    from `order_info`
+    where id = #{id}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, order_sn, user_id, order_status, shipping_status, pay_status, consignee, 
+    country, province, city, district, address, zipcode, mobile, order_amount
+    from `order_info`
+  </select>
+</mapper>
