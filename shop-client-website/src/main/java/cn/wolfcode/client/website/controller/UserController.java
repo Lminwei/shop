@@ -3,7 +3,6 @@ package cn.wolfcode.client.website.controller;
 import cn.wolfcode.shop.api.domain.User;
 import cn.wolfcode.shop.api.service.IUserService;
 import cn.wolfcode.shop.api.vo.JSONResultVo;
-import com.alibaba.dubbo.common.json.JSON;
 import com.alibaba.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,7 +24,7 @@ public class UserController
         JSONResultVo jsonResultVo = new JSONResultVo();
         jsonResultVo.setResult(user);
         if (user == null) {
-            jsonResultVo.setErrorMsg("用户名已经被注册");
+            jsonResultVo.setErrorMsg("用户名已经被 注册");
         }
         return jsonResultVo;
     }
