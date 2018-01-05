@@ -19,6 +19,8 @@ public class UserController
 
 
 
+
+
     @RequestMapping(method = RequestMethod.POST)
     public JSONResultVo register(User user)
     {
