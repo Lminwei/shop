@@ -17,6 +17,8 @@ public class UserController
     @Reference
     private IUserService userService;
 
+
+
     @RequestMapping(method = RequestMethod.POST)
     public JSONResultVo register(User user)
     {
